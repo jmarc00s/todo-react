@@ -45,9 +45,8 @@ const TaskForm = ({onCreate}: TaskProps) => {
 
     function handleCreateClick(event: FormEvent){
       event.preventDefault();
-
       if(!taskInputValue.length)  return;
-
+      
       const newTask: TaskModel = {
         id: parseInt((Math.random() * 10000).toString(), 10),
         description: taskInputValue,
@@ -62,8 +61,8 @@ const TaskForm = ({onCreate}: TaskProps) => {
         <>
         <TaskLabel>Insira uma tarefa</TaskLabel>
         <TaskInputForm onSubmit={handleCreateClick}>
-          <TaskInput autoComplete="off" id="task-input" placeholder="Fazer o jantar..." value={taskInputValue} onChange={({target}) => setTaskInputValue(target.value)} />
-          <TaskButton >Criar</TaskButton>
+          <TaskInput maxLength={40} autoComplete="off" id="task-input" placeholder="Fazer o jantar..." value={taskInputValue} onChange={({target}) => setTaskInputValue(target.value)} />
+          <TaskButton>Criar</TaskButton>
         </TaskInputForm>
         </>
     )

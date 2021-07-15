@@ -37,11 +37,9 @@ const TaskList = ({ tasks, onTaskClick }: TaskListProps) => {
     if(!tasks.length)
         return null;
 
-    return (
-        <Section>
+    return <Section>
             {tasks.map(task => <Task key={task.id} onClick={() => onTaskClick(task.id)} complete={task.complete}>{task.description}</Task>)}
         </Section>
-    )
 }
 
 export default TaskList
