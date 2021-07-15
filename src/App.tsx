@@ -17,7 +17,7 @@ function App() {
     setItem(JSON.stringify(tasks));
   }
 
-  function handleTaskClick(id: number){    
+  function handleTaskClick(id: string){
     setTasks(tasks.map(task => {
       if(task.id === id)
         task.complete = !task.complete;
@@ -29,7 +29,6 @@ function App() {
 
   React.useEffect(() => {    
     const tasks = getItem();
-    console.log(tasks);
     if(tasks?.length)
       setTasks(JSON.parse(tasks));    
   }, [])

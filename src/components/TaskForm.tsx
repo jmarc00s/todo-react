@@ -2,6 +2,8 @@ import React, { FormEvent } from 'react'
 import styled from 'styled-components';
 import { TaskModel } from '../models/TaskModel';
 
+import { v4 as uuid } from 'uuid';
+
 const TaskInputForm = styled.form`
   display: flex;
 `;
@@ -48,7 +50,7 @@ const TaskForm = ({onCreate}: TaskProps) => {
       if(!taskInputValue.length)  return;
       
       const newTask: TaskModel = {
-        id: parseInt((Math.random() * 10000).toString(), 10),
+        id: uuid(),
         description: taskInputValue,
         complete: false
       };
